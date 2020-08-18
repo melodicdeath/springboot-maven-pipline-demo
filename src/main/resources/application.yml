@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: springboot-maven-pipline-demo
+app:
+  version: @project.version@
+  build:
+    time: @timestamp@
