@@ -11,8 +11,7 @@ pipeline {
                 echo "1.Clone Stage"
                 git(
                     url: "http://61.187.64.220:7907/zhangting/springboot-maven-pipline-demo.git",
-                    // credentialsId: "c46b02d5-4a2a-4efc-9957-89129823160f",
-                    credentialsId: "8d9aa164-8778-49cd-af76-f8f421f9377c",
+                    credentialsId: "gitlab_zhangting",
                     branch: "master"
                 )
                 script {
@@ -36,7 +35,9 @@ pipeline {
         steps{
             container('docker-190312') {
             echo "4.Push Docker Image Stage"
-            sh "docker login harbor.cs.cptmcp.com:30723 -u admin -p Harbor12345"
+            withCredentials([usernamePassword(credentialsId: 'harbor_id', passwordVariable: 'pwd', usernameVariable: 'user')]) {
+                sh "docker login harbor.cs.cptmcp.com:30723 -u ${user} -p ${pwd}"
+            }
             sh "docker push harbor.cs.cptmcp.com:30723/temp/zhangting/springboot-maven-pipline-demo:0.0.1"
             }
         }
