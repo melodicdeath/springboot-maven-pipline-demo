@@ -11,7 +11,8 @@ pipeline {
                 echo "1.Clone Stage"
                 git(
                     url: "http://61.187.64.220:7907/zhangting/springboot-maven-pipline-demo.git",
-                    credentialsId: "c46b02d5-4a2a-4efc-9957-89129823160f",
+                    // credentialsId: "c46b02d5-4a2a-4efc-9957-89129823160f",
+                    credentialsId: "8d9aa164-8778-49cd-af76-f8f421f9377c",
                     branch: "master"
                 )
                 script {
