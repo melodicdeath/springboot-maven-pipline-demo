@@ -10,19 +10,13 @@ import java.util.Map;
 @RestController
 @RequestMapping("/app")
 public class AppController {
-    /**
-     * 当前版本
-     */
     @Value("${app.version}")
     private String version;
-    /**
-     * 打包时间
-     */
     @Value("${app.build.time}")
     private String buildTime;
 
-    @GetMapping
+    @GetMapping("/version")
     public String getVersion() {
-        return String.format("%s %s",version,buildTime);
+        return String.format("%s,%s",version,buildTime);
     }
 }
