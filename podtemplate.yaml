@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: git-maven-docker-cicd
+  namespace: cicd
+  labels:
+    name: m2-cache
+spec:
+  restartPolicy: Never
+  nodeSelector:
+    base_tools_internet: "true"
+  containers:
+  - name: git2262-mvn363
+    image: harbor.cs.cptmcp.com:30723/library/ringcentral/maven:3.6.3-jdk8u202
+    command: ["sleep", "1200"]
+    volumeMounts:
+      - mountPath: /root/.m2
+        name: m2
+  - name: docker-190312
+    image: harbor.cs.cptmcp.com:30723/library/docker:19.03.12
+    command: ["sleep", "1200"]
+    volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker
+  volumes:
+    - name: m2
+      persistentVolumeClaim:
+        claimName: m2-pvc
+    - name: docker
+      hostPath:
+          path: /var/run/docker.sock
