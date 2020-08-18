@@ -41,7 +41,18 @@
 		<repository>
 			<id>alimaven</id>
 			<name>aliyun maven</name>
-			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<url>https://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>central</id>
+			<name>aliyun maven central</name>
+			<url>https://maven.aliyun.com/repository/central</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -51,8 +62,17 @@
 		</repository>
 	</repositories>
 
+	<scm>
+		<developerConnection>scm:git:https://github.com/melodicdeath/springboot-maven-pipline-demo.git</developerConnection>
+	</scm>
+
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>3.0.0-M1</version>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
