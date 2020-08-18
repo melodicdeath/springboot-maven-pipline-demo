@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.cptmcp</groupId>
 	<artifactId>springboot-maven-pipline-demo</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.3</version>
 	<name>springboot-maven-pipline-demo</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -67,7 +67,7 @@
 
 	<scm>
 		<developerConnection>scm:git:https://github.com/melodicdeath/springboot-maven-pipline-demo.git</developerConnection>
-	  <tag>HEAD</tag>
+	  <tag>0.0.3</tag>
   </scm>
 
 	<build>
