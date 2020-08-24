@@ -20,7 +20,7 @@ public class ResponseHeaderWebFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
                                     FilterChain filterChain) throws ServletException, IOException {
-        httpServletResponse.addHeader("version", version);
+        httpServletResponse.addHeader("Version", version);
         httpServletResponse.addHeader("Build-Time", buildTime);
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
